@@ -1,16 +1,14 @@
-from PIL import Image
+import webbrowser
+from photo_loading import *
 from character_map import *
 
-im = Image.open('images/photo.jpg')
-pix = im.load()
-pixMap_size = im.size
-print(pixMap_size)
-
+pixMap, pixMap_size = get_pixmap()
 file = open("output.txt", "w")
 for y in range(pixMap_size[1]):
     for x in range(pixMap_size[0]):
-        rgb_sum = pix[x, y][0] + pix[x, y][1] + pix[x, y][2]
-        file.write(character(rgb_sum))
+        rgb_sum = pixMap[x, y][0] + pixMap[x, y][1] + pixMap[x, y][2]
+        file.write(character2(rgb_sum))
     file.write('\n')
 
 file.close()
+webbrowser.open("output.txt")
