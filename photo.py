@@ -1,4 +1,8 @@
+import tkinter
+from tkinter import filedialog
+
 from PIL import Image
+
 from character_map import *
 
 
@@ -18,8 +22,17 @@ def get_pixmap(path):
     return pixmap, pixmap_size
 
 
-def create_output_file():
-    pixmap, pixmap_size = get_pixmap('images/photo.jpg')
+def choose_image_path():
+    root = tkinter.Tk()
+    root.withdraw()
+    return filedialog.askopenfilename()
+
+
+def create_output_file(image_path):
+    if not image_path:
+        exit(1)
+
+    pixmap, pixmap_size = get_pixmap(image_path)
     file = open('output.txt', 'w')
     for y in range(pixmap_size[1]):
         for x in range(pixmap_size[0]):
