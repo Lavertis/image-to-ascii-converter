@@ -2,7 +2,9 @@
 Portrait image to ASCII converter.
 
 ## How to use:
-Run the program.
+Download [Image to ASCII.exe](https://raw.githubusercontent.com/Lavertis/image-to-ascii-converter/master/output/Image%20to%20ASCII.exe).
+
+Run `Image to ASCII.exe`.
 
 Choose the image you want to convert in the file dialog box.
 
